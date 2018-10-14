@@ -49,7 +49,8 @@ function operations(e){
           x = a/b;
         }
 
-   screen = x.toPrecision(10).replace(/0+$/, ""); //fix zeros in floating numbers but it displays wierd point sign at the end of the integer
+   //screen = x.toPrecision(10).replace(/0+$/, ""); //fix zeros in floating numbers but it displays wierd point sign at the end of the integer
+   screen = +x.toFix(10);
          displayDigit.splice(0,2,x);//exchange first two elements (numbers) of the array with their result
          operators.splice(1,1);  //next operator...
     };
