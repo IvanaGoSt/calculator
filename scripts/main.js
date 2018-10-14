@@ -36,8 +36,8 @@ function operations(e){
   function result(){
       operators = digitStr.split(/\d*\.?\d*/);
     for(var j = displayDigit.length-1; j > 0; j--){//looping from the end, because splice method did not do well with the looping from the begining
-   var a = (displayDigit[0])-0;
-   var b = (displayDigit[1])-0;
+   var a = Number(displayDigit[0]);
+   var b = Number(displayDigit[1]);
 
         if(operators[1]==="+"){
           x = a+b;
@@ -49,8 +49,7 @@ function operations(e){
           x = a/b;
         }
 
-   //screen = x.toPrecision(10).replace(/0+$/, ""); //fix zeros in floating numbers but it displays wierd point sign at the end of the integer
-   screen = +x.toFix(10);
+  screen = x.toPrecision(10).replace(/0+$/, ""); //fix zeros in floating numbers but it displays wierd point sign at the end of the integer
          displayDigit.splice(0,2,x);//exchange first two elements (numbers) of the array with their result
          operators.splice(1,1);  //next operator...
     };
